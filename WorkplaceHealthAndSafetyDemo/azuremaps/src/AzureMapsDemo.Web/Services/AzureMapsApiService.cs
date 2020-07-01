@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -59,14 +60,16 @@ namespace AzureMapsDemo.Web.Services
       {
         return;
       }
+      CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+
       var queryString = HttpUtility.ParseQueryString(string.Empty);
       // Request parameters
       queryString["subscription-key"] = _azureMapsOptions.Key;
       queryString["api-version"] = _azureMapsOptions.ApiVersion;
       queryString["deviceId"] = userLocation.Name;
       queryString["udId"] = _currentGeofenceUdId;
-      queryString["lat"] = $"{userLocation.Latitude}";
-      queryString["lon"] = $"{userLocation.Longitude}";
+      queryString["lat"] = userLocation.Latitude.ToString("G", culture);
+      queryString["lon"] = userLocation.Longitude.ToString("G", culture);
       queryString["searchBuffer"] = "5";
       queryString["isAsync"] = "True";
       queryString["mode"] = "EnterAndExit";
@@ -105,14 +108,15 @@ namespace AzureMapsDemo.Web.Services
         return false;
       }
 
+      CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
       var queryString = HttpUtility.ParseQueryString(string.Empty);
       // Request parameters
       queryString["subscription-key"] = _azureMapsOptions.Key;
       queryString["api-version"] = _azureMapsOptions.ApiVersion;
       queryString["deviceId"] = deviceId;
       queryString["udId"] = _currentGeofenceUdId;
-      queryString["lat"] = $"{latitude}";
-      queryString["lon"] = $"{longitude}";
+      queryString["lat"] = latitude.ToString("G", culture);
+      queryString["lon"] = longitude.ToString("G", culture);
       queryString["searchBuffer"] = "5";
       queryString["isAsync"] = "False";
       queryString["mode"] = "EnterAndExit";
