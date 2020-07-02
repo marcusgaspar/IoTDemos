@@ -130,10 +130,10 @@ namespace AzureMapsDemo.Web.Services
     {
       return new List<UserLocationModel>
       {
-        //GetFakeUserByName("John", latitude, longitude),
-        //GetFakeUserByName("Jake", latitude, longitude),
-        //GetFakeUserByName("Sue", latitude, longitude),
-        //GetFakeUserByName("Pete", latitude, longitude)
+        GetFakeUserByName("John", latitude, longitude),
+        GetFakeUserByName("Jake", latitude, longitude),
+        GetFakeUserByName("Sue", latitude, longitude),
+        GetFakeUserByName("Pete", latitude, longitude)
       };
     }
 
