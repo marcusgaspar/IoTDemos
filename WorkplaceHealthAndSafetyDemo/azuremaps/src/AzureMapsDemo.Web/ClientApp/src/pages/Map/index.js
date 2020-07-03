@@ -23,7 +23,7 @@ export class Map extends Component {
       storedUsers: [],
       geofence: {}
     };
-    this.center = { lat: -22.970469, long: -43.395419 };
+    this.center = { lat: 47.6133, long: -122.31398999999999 };
   }
 
   async componentDidMount() {
