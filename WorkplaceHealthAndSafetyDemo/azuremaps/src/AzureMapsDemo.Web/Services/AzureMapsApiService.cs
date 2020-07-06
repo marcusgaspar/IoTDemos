@@ -115,7 +115,7 @@ namespace AzureMapsDemo.Web.Services
       queryString["api-version"] = _azureMapsOptions.ApiVersion;
       queryString["deviceId"] = deviceId;
       queryString["udId"] = _currentGeofenceUdId;
-      queryString["lat"] = latitude.ToString("G", culture);
+      queryString["lat"] = latitude.ToString("G", culture); 
       queryString["lon"] = longitude.ToString("G", culture);
       queryString["searchBuffer"] = "5";
       queryString["isAsync"] = "False";

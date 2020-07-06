@@ -130,6 +130,7 @@ namespace AzureMapsDemo.Web.Services
     {
       return new List<UserLocationModel>
       {
+        // commented for POC
         //GetFakeUserByName("John", latitude, longitude),
         //GetFakeUserByName("Jake", latitude, longitude),
         //GetFakeUserByName("Sue", latitude, longitude),
