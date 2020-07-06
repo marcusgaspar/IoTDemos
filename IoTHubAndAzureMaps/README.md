@@ -69,7 +69,6 @@ Create 2 Logic Apps:
 1. Get the Trigger endpoint URL
 
 ### Azure Maps Account - Configure GeoFence Event Grid on Azure Maps
-
 Here we will setup an event subscription for the Azure Maps account in order to notify the geofence events to our Logic App.
 
 1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
