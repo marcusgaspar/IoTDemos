@@ -9,7 +9,7 @@ This Demo uses the web application of the Workplace Health and Safety Demo to sh
 ## Deployment of resources
 
 ### Azure Maps account
-Create Azure Maps Account. Tier S1
+1. Create Azure Maps Account using Tier S1
 
 ### Azure Maps Solution
 
@@ -28,11 +28,11 @@ Download and Install
 1. Press F5 in the Visual Studio project to run the web application locally.
 
 ### Azure App Service Web App 
-#### Create a Web App - App Service
-   - F1 Tier
-   - Get Publish Profile
+#### Create a Web App - Azure App Service
+1. Use F1 Tier
+1. Get Publish Profile
 
-#### Deploy Web App
+#### Deploy Web App to Azure App Service
 If you would like to customize the Azure Maps solution, the source code is available under `azuremaps\src`.
 
 To deploy your updated solution to the existing resource via Visual Studio, complete the following steps:
@@ -47,16 +47,26 @@ To deploy your updated solution to the existing resource via Visual Studio, comp
 1. Select the publish profile you downloaded in the earlier step.
 1. Wait for the deployment to be completed. 
 
-
 ### Azure Logic App - Send Device Telemetry  
+1. Create new Logic App `SendLocationToMap`
+1. Get the Trigger endpoint URL
 
 ### Azure Event Grid - Configure Telemetry on IoTHub  
+1. Add Event Subscription to send Device Telemetry to Logic App
+1. Select only the Event Type: `Device Telemetry`
+1. Select Endpoint Type: `Web Hook`
+1. Enter the `SendLocationToMap` trigger endpoint URL to the `Subscriber Endpoint` field.
 
 ### Azure Logic App - Create GeoFence Alerts
+Create 2 Logic Apps:
 
 #### Create GeoFence Alert: Entering Geofence area
+1. Create new Logic App `GeoFenceEnterAlert`
+1. Get the Trigger endpoint URL
 
 #### Create GeoFence Alert: Exiting Geofence area
+1. Create new Logic App `GeoFenceExitAlert`
+1. Get the Trigger endpoint URL
 
 ### Azure Maps Account - Configure GeoFence Event Grid on Azure Maps
 
@@ -76,7 +86,6 @@ Here we will setup an event subscription for the Azure Maps account in order to 
 1. In the new panel update the `Subscriber Endpoint` field with the value from the deployment output named `geofence Alerts Logic App Endpoint`.
 1. Click the `Confirm Selection` button.
 1. Click the `Create` button.
-
 
 
 
