@@ -9,6 +9,56 @@ This Demo uses the web application of the Workplace Health and Safety Demo to sh
 ## Deployment of resources
 
 ### Azure Maps account
+Create Azure Maps Account. Tier S1
+
+### Azure Maps Solution
+
+#### Requirements
+Download and Install 
+   - NETCore 2.2
+      - https://dotnet.microsoft.com/download/dotnet-core/2.2
+   - Node.js
+      - https://nodejs.org/
+      
+#### Open Solution in Visual Studio
+1. Open Visual Studio.
+1. From the top menu click the `File | Open | Project/Solution`.
+1. Open `azuremaps\src\AzureMapsDemo.sln`.
+1. Open appsettings.json and edit the Azure Maps Key
+1. Press F5 in the Visual Studio project to run the web application locally.
+
+### Azure App Service Web App 
+#### Create a Web App - App Service
+   - F1 Tier
+   - Get Publish Profile
+
+#### Deploy Web App
+If you would like to customize the Azure Maps solution, the source code is available under `azuremaps\src`.
+
+To deploy your updated solution to the existing resource via Visual Studio, complete the following steps:
+1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
+1. Select the `App Service` resource.
+1. Select `Get Publish Profile` from the top navigation.
+1. Open Visual Studio.
+1. From the top menu click the `File | Open | Project/Solution`.
+1. Open `azuremaps\src\AzureMapsDemo.sln`.
+1. From the left navigation, right click on `AzureMapsDemo.Web` and click `Publish`.
+1. Click `Import Profile` from the bottom left.
+1. Select the publish profile you downloaded in the earlier step.
+1. Wait for the deployment to be completed. 
+
+
+### Azure Logic App - Send Device Telemetry  
+
+### Azure Event Grid - Configure Telemetry on IoTHub  
+
+### Azure Logic App - Create GeoFence Alerts
+
+#### Create GeoFence Alert: Entering Geofence area
+
+#### Create GeoFence Alert: Exiting Geofence area
+
+### Azure Maps Account - Configure GeoFence Event Grid on Azure Maps
 
 Here we will setup an event subscription for the Azure Maps account in order to notify the geofence events to our Logic App.
 
@@ -26,38 +76,6 @@ Here we will setup an event subscription for the Azure Maps account in order to 
 1. In the new panel update the `Subscriber Endpoint` field with the value from the deployment output named `geofence Alerts Logic App Endpoint`.
 1. Click the `Confirm Selection` button.
 1. Click the `Create` button.
-
-### Azure Maps Solution
-
-If you would like to customize the Azure Maps solution, the source code is available under `azuremaps\src`.
-
-To deploy your updated solution to the existing resource via Visual Studio, complete the following steps:
-
-1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
-1. Select the `App Service` resource.
-1. Select `Get Publish Profile` from the top navigation.
-1. Open Visual Studio.
-1. From the top menu click the `File | Open | Project/Solution`.
-1. Open `azuremaps\src\AzureMapsDemo.sln`.
-1. From the left navigation, right click on `AzureMapsDemo.Web` and click `Publish`.
-1. Click `Import Profile` from the bottom left.
-1. Select the publish profile you downloaded in the earlier step.
-1. Wait for the deployment to be completed. 
-
-### Azure App Service Web App 
-
-
-### Azure Logic App - Send Device Telemetry  
-
-### Azure Event Grid - Configure Telemetry on IoTHub  
-
-### Azure Logic App - Create GeoFence Alerts
-
-#### Create GeoFence Alert: Entering Geofence area
-
-#### Create GeoFence Alert: Exiting Geofence area
-
-### Azure Azure Maps - Configure GeoFence Event Grid on Azure Maps
 
 
 
