@@ -129,11 +129,12 @@ namespace AzureMapsDemo.Web.Services
     private List<UserLocationModel> GetFakeUsers(double latitude, double longitude)
     {
       return new List<UserLocationModel>
-      {
-        GetFakeUserByName("John", latitude, longitude),
-        GetFakeUserByName("Jake", latitude, longitude),
-        GetFakeUserByName("Sue", latitude, longitude),
-        GetFakeUserByName("Pete", latitude, longitude)
+      { 
+        //commented for the POC
+        //GetFakeUserByName("John", latitude, longitude),
+        //GetFakeUserByName("Jake", latitude, longitude),
+        //GetFakeUserByName("Sue", latitude, longitude),
+        //GetFakeUserByName("Pete", latitude, longitude)
       };
     }
 

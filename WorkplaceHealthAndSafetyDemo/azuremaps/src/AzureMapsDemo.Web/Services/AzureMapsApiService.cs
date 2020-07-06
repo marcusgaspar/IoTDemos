@@ -67,7 +67,7 @@ namespace AzureMapsDemo.Web.Services
       queryString["subscription-key"] = _azureMapsOptions.Key;
       queryString["api-version"] = _azureMapsOptions.ApiVersion;
       queryString["deviceId"] = userLocation.Name;
-      queryString["udId"] = _currentGeofenceUdId;
+      queryString["udId"] = _currentGeofenceUdId;      
       queryString["lat"] = userLocation.Latitude.ToString("G", culture);
       queryString["lon"] = userLocation.Longitude.ToString("G", culture);
       queryString["searchBuffer"] = "5";
