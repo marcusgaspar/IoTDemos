@@ -7,7 +7,7 @@ This Demo uses the web application of the Workplace Health and Safety Demo to sh
 ![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/TemporaryChangesForPOC/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
 
 ## Deployment of resources
-
+   
 ### Azure Maps account
 1. Create Azure Maps Account using Tier S1
 
@@ -31,6 +31,7 @@ Download and Install
 #### Create a Web App - Azure App Service
 1. Use F1 Tier
 1. Get Publish Profile
+1. Get Web App URL
 
 #### Deploy Web App to Azure App Service
 If you would like to customize the Azure Maps solution, the source code is available under `azuremaps\src`.
@@ -48,6 +49,11 @@ To deploy your updated solution to the existing resource via Visual Studio, comp
 1. Wait for the deployment to be completed. 
 
 ### Azure Logic App - Send Device Telemetry  
+1. Use the Azure Resource Manager (ARM) template to deploy will be used to deploy Logic App `SendLocationToMap`.  Click on the link below to start the deployment.<br>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FIoTDemos%2Fmaster%2FWorkplaceHealthAndSafetyDemo%2Fdeployment%2Fazure%2Farm-template.json" target="_blank">
+<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
+</a>
+   
 1. Create new Logic App `SendLocationToMap`
 1. Get the Trigger endpoint URL
 
