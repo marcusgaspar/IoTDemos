@@ -50,7 +50,7 @@ To deploy your updated solution to the existing resource via Visual Studio, comp
 
 ### Azure Logic App - Send Device Telemetry  
 1. Use the Azure Resource Manager (ARM) template to deploy will be used to deploy Logic App `SendLocationToMap`.  Click on the link below to start the deployment.<br>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FIoTDemos%2Fmaster%2FWorkplaceHealthAndSafetyDemo%2Fdeployment%2Fazure%2Farm-template.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2Fmarcusgaspar%2FIoTDemos%2Fblob%2Fmaster%2FIoTHubAndAzureMaps%2Fdeployment%2FSendLocationToMap-ARM-Template.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
    
