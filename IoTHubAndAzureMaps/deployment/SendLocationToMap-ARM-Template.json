@@ -1,0 +1,202 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_SendLocationToMap_name": {
+            "defaultValue": "SendLocationToMap",
+            "type": "String"
+        },
+		"web_app_url": {
+            "defaultValue": "https://{iotmapswebapp-url}/api/users",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_SendLocationToMap_name')]",
+            "location": "eastus",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "triggers": {
+                        "manual": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "data": {
+                                                "properties": {
+                                                    "body": {
+                                                        "type": "string"
+                                                    },
+                                                    "properties": {
+                                                        "properties": {
+                                                            "Latitude": {
+                                                                "type": "string"
+                                                            },
+                                                            "Longitude": {
+                                                                "type": "string"
+                                                            },
+                                                            "temperatureAlert": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "systemProperties": {
+                                                        "properties": {
+                                                            "iothub-connection-auth-generation-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-auth-method": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-connection-device-id": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-enqueuedtime": {
+                                                                "type": "string"
+                                                            },
+                                                            "iothub-message-source": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "dataVersion": {
+                                                "type": "string"
+                                            },
+                                            "eventTime": {
+                                                "type": "string"
+                                            },
+                                            "eventType": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "metadataVersion": {
+                                                "type": "string"
+                                            },
+                                            "subject": {
+                                                "type": "string"
+                                            },
+                                            "topic": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "topic",
+                                            "subject",
+                                            "eventType",
+                                            "data",
+                                            "dataVersion",
+                                            "metadataVersion",
+                                            "eventTime"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "For_each_2": {
+                            "foreach": "@triggerBody()",
+                            "actions": {
+                                "Condition": {
+                                    "actions": {
+                                        "HTTP_2": {
+                                            "runAfter": {},
+                                            "type": "Http",
+                                            "inputs": {
+                                                "body": {
+                                                    "Id": "@items('For_each_2')?['data']?['systemProperties']?['iothub-connection-device-id']",
+                                                    "Latitude": "@body('Parse_JSON')?['Latitude']",
+                                                    "Longitude": "@body('Parse_JSON')?['Longitude']",
+                                                    "Name": "@items('For_each_2')?['data']?['systemProperties']?['iothub-connection-device-id']"
+                                                },
+                                                "headers": {
+                                                    "Content-Type": "application/json"
+                                                },
+                                                "method": "POST",
+                                                "uri": "[parameters('web_app_url')]"
+                                            }
+                                        }
+                                    },
+                                    "runAfter": {
+                                        "Parse_JSON": [
+                                            "Succeeded"
+                                        ]
+                                    },
+                                    "expression": {
+                                        "and": [
+                                            {
+                                                "not": {
+                                                    "equals": [
+                                                        "@body('Parse_JSON')?['Latitude']",
+                                                        "@null"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "not": {
+                                                    "equals": [
+                                                        "@body('Parse_JSON')?['Longitude']",
+                                                        "@null"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "type": "If"
+                                },
+                                "Parse_JSON": {
+                                    "runAfter": {},
+                                    "type": "ParseJson",
+                                    "inputs": {
+                                        "content": "@base64toString(items('For_each_2')?['data']?['body'])",
+                                        "schema": {
+                                            "properties": {
+                                                "Latitude": {
+                                                    "type": "number"
+                                                },
+                                                "Longitude": {
+                                                    "type": "number"
+                                                },
+                                                "humidity": {
+                                                    "type": "number"
+                                                },
+                                                "temperature": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "Foreach"
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {}
+            }
+        }
+    ]
+}
