@@ -57,43 +57,57 @@ To deploy your updated solution to the existing resource via Visual Studio, comp
 
 
 ### Azure Event Grid - Configure Telemetry on IoTHub  
-1. Add Event Subscription to send Device Telemetry to Logic App
-1. Select only the Event Type: `Device Telemetry`
-1. Select Endpoint Type: `Web Hook`
-1. Enter the `SendLocationToMap` trigger endpoint URL to the `Subscriber Endpoint` field.
+Here we will setup an event subscription for the Azure IoT Hub in order to send Device Telemety to Logic App:
+
+1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
+1. Select the `IoT Hub` resource.
+1. Click the `Events` option in the left menu.
+1. Click the `+ Event Subscription` button in the top of the panel.
+1. Enter `SendLocationToMapEvent` to the `Name` input field.
+1. Leave `Event Schema` as `Event Grid Schema` 
+1. Check only the `Device Telemetry` option in the `Filter to Event Types` dropdown. 
+1. For the `Endpoint Type` select the `Web Hook` option.
+1. Click the `Select an endpoint` link.
+1. In the new panel update the `Subscriber Endpoint` field with the value URL from the deployment output of Logic App: `SendLocationToMap - Trigger endpoint URL`.
+1. Click the `Confirm Selection` button.
+1. Click the `Create` button.
 
 ### Azure Logic App - Create GeoFence Alerts
-Create 2 Logic Apps:
-
-#### Create GeoFence Alert: Entering Geofence area
-1. Create new Logic App `GeoFenceEnterAlert`
-1. Get the Trigger endpoint URL
-
-#### Create GeoFence Alert: Exiting Geofence area
-1. Create new Logic App `GeoFenceExitAlert`
-1. Get the Trigger endpoint URL
+1. Use the Azure Resource Manager (ARM) template to deploy 2 Logic Apps called: `GeoFenceEnterAlert` and `GeoFenceExitAlert`. Click on the link below to start the deployment.<br>
+1. After deploy it, get the Trigger endpoint URL of each one.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmarcusgaspar%2FIoTDemos%2Fmaster%2FIoTHubAndAzureMaps%2Fdeployment%2FGeoFenceEvents-ARM.json" target="_blank">
+<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
+</a><br/>
 
 ### Azure Maps Account - Configure GeoFence Event Grid on Azure Maps
-Here we will setup an event subscription for the Azure Maps account in order to notify the geofence events to our Logic App.
+Here we will setup 2 event subscriptions for the Azure Maps account in order to notify the geofence events to our Logic App.
 
+#### Geofence Entered - Event Subscription
 1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
 1. Select the `Azure Maps Account` resource.
 1. Click the `Events` option in the left menu.
 1. Click the `+ Event Subscription` button in the top of the panel.
-1. Enter `logicappalerts` to the `Name` input field.
+1. Enter `GeoFenceEnterEvent` to the `Name` input field.
 1. Leave `Event Schema` as `Event Grid Schema` 
-1. Uncheck the `Geofence Result` option in the `Filter to Event Types` dropdown. Ensure that only the following 2 events are selected:
-    * Geofence Entered
-    * Geofence Exited
+1. Check only the `Geofence Entered` option in the `Filter to Event Types` dropdown. 
 1. For the `Endpoint Type` select the `Web Hook` option.
 1. Click the `Select an endpoint` link.
-1. In the new panel update the `Subscriber Endpoint` field with the value from the deployment output named `geofence Alerts Logic App Endpoint`.
+1. In the new panel update the `Subscriber Endpoint` field with the value URL from the deployment output of Logic App: `GeoFenceEnterAlert - Trigger endpoint URL`.
 1. Click the `Confirm Selection` button.
 1. Click the `Create` button.
 
-
-
-
-
+#### Geofence Exited - Event Subscription
+1. In the [Azure portal](https://portal.azure.com/) select the `Resource Group` you created earlier.
+1. Select the `Azure Maps Account` resource.
+1. Click the `Events` option in the left menu.
+1. Click the `+ Event Subscription` button in the top of the panel.
+1. Enter `GeoFenceExitEvent` to the `Name` input field.
+1. Leave `Event Schema` as `Event Grid Schema` 
+1. Check only the `Geofence Exited` option in the `Filter to Event Types` dropdown. 
+1. For the `Endpoint Type` select the `Web Hook` option.
+1. Click the `Select an endpoint` link.
+1. In the new panel update the `Subscriber Endpoint` field with the value URL from the deployment output of Logic App: `GeoFenceExitAlert - Trigger endpoint URL`.
+1. Click the `Confirm Selection` button.
+1. Click the `Create` button.
 
 
