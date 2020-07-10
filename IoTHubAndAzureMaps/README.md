@@ -14,6 +14,9 @@ This Demo uses the web application of the Workplace Health and Safety Demo to sh
 ### Create Azure IoT Hub
 1. Create IoT Hub using `Free` or `Standard` Tier 
 1. Use `Public endpoint (all network)` setting
+1. After provisioning IoT Hub, create a IoT Hub Device from the IoT Hub menu (`Explorer` > `IoT devices` > `New`).
+1. Enter the IoT Device ID (`MyIoTDevice`) to the `Device ID` input field and keep all the default settings.
+1. Click the `Save` button.
 
 ### Setup Azure Maps Web App Solution
 #### Requirements
