@@ -1,4 +1,4 @@
-# IoTHub and Azure Maps Demos
+# IoT Hub and Azure Maps Demo
 
 ## Overview
 This Demo uses the web application of the Workplace Health and Safety Demo to show in Azure Maps the device location from a IoTHub Device telemety.
