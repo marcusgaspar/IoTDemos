@@ -14,7 +14,7 @@ In this demo you will be able to:
 ### Device entered in the geofence area
 ![Maps Device_Entered_GeoFence](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen-Entered-Alert.png)
 
-### Device exited in the geofence area
+### Device exited the geofence area
 ![Maps Device_Exited_GeoFence](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen-Exited-Alert.png)
 
 ## Architecture
