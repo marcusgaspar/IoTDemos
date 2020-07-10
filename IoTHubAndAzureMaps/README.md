@@ -8,6 +8,8 @@ In this demo you will be able to:
 - Receive a notification when a device enters in the geofence area
 - Receive a notification when a device exits  the geofence area
 
+![Maps Web App](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen.png)
+
 ## Architecture
 ![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
 
