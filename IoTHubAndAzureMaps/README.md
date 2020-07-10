@@ -4,7 +4,7 @@
 This Demo uses the web application of the Workplace Health and Safety Demo to show in Azure Maps the device location from a IoTHub Device telemety.
 
 ## Architecture
-![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/TemporaryChangesForPOC/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
+![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
 
 ## Deployment of resources
    
