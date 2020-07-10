@@ -80,7 +80,6 @@ Here we will setup 2 event subscriptions for the Azure Maps account in order to 
 1. Enter `GeoFenceEnterEvent` to the `Name` input field.
 1. Leave `Event Schema` as `Event Grid Schema` 
 1. Check only the `Geofence Entered` option in the `Filter to Event Types` dropdown. 
-    * Geofence Exited
 1. For the `Endpoint Type` select the `Web Hook` option.
 1. Click the `Select an endpoint` link.
 1. In the new panel update the `Subscriber Endpoint` field with the value URL from the deployment output of Logic App: `GeoFenceEnterAlert - Trigger endpoint URL`.
