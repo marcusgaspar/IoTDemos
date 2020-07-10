@@ -63,15 +63,11 @@ To deploy your updated solution to the existing resource via Visual Studio, comp
 1. Enter the `SendLocationToMap` trigger endpoint URL to the `Subscriber Endpoint` field.
 
 ### Azure Logic App - Create GeoFence Alerts
-Create 2 Logic Apps:
-
-#### Create GeoFence Alert: Entering Geofence area
-1. Create new Logic App `GeoFenceEnterAlert`
-1. Get the Trigger endpoint URL
-
-#### Create GeoFence Alert: Exiting Geofence area
-1. Create new Logic App `GeoFenceExitAlert`
-1. Get the Trigger endpoint URL
+1. Use the Azure Resource Manager (ARM) template to deploy 2 Logic Apps called: `GeoFenceEnterAlert` and `GeoFenceExitAlert`. Click on the link below to start the deployment.<br>
+1. After deploy it, get the Trigger endpoint URL of each one.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmarcusgaspar%2FIoTDemos%2Fmaster%2FIoTHubAndAzureMaps%2Fdeployment%2FGeoFenceEvents-ARM.json" target="_blank">
+<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
+</a><br/>
 
 ### Azure Maps Account - Configure GeoFence Event Grid on Azure Maps
 Here we will setup an event subscription for the Azure Maps account in order to notify the geofence events to our Logic App.
