@@ -116,4 +116,18 @@ Here we will setup 2 event subscriptions for the Azure Maps account in order to 
 1. Click the `Confirm Selection` button.
 1. Click the `Create` button.
 
+## Testing the Solution
+
+#### Simulation the Device Telemetry
+To simulate the Device Telemetry, please use the `QuickStarts` project from the link:
+- https://github.com/marcusgaspar/azure-iot-samples-csharp
+
+##### Open Solution in Visual Studio
+1. Open Visual Studio.
+1. From the top menu click the `File | Open | Project/Solution`.
+1. Open `azure-iot-samples-csharp\iot-hub\Quickstarts\Quickstarts.sln`.
+1. Open `SimulatedDevice.cs` from the `simulated-device` project.
+1. Configure the `s_connectionString` variable, following the instructions on the comments.
+1. Press F5 in the Visual Studio project to run the console application locally.
+1. Once you run it, you should start to see the device in the Map of the Azure Maps Web App created previously. 
 
