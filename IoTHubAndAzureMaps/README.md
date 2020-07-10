@@ -1,7 +1,12 @@
 # IoT Hub and Azure Maps Demo
 
 ## Overview
-This Demo uses the web application of the Workplace Health and Safety Demo to show in Azure Maps the device location from a IoTHub Device telemety.
+This demo uses the web application of the Workplace Health and Safety Demo to show in Azure Maps the device location from a IoTHub Device telemety.
+In this demo you will be able to:
+- Show in the map the position of a device based on its telemetry information
+- Create GeoFence drawing it in the map
+- Receive a notification when a device enters in the geofence area
+- Receive a notification when a device exits  the geofence area
 
 ## Architecture
 ![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
