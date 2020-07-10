@@ -118,7 +118,7 @@ Here we will setup 2 event subscriptions for the Azure Maps account in order to 
 
 ## Testing the Solution
 
-#### Simulation the Device Telemetry
+#### Simulating the Device Telemetry
 To simulate the Device Telemetry, please use the `QuickStarts` project from the link:
 - https://github.com/marcusgaspar/azure-iot-samples-csharp
 
