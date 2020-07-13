@@ -180,7 +180,14 @@ export class Map extends Component {
       this.map.controls.add(new window.atlas.control.ZoomControl(), {
           position: 'top-right'
         });
-        
+
+        //Add style control to the map.
+        this.map.controls.add(new window.atlas.control.StyleControl({
+          mapStyles: ['road', 'satellite', 'satellite_road_labels']
+        }), {
+          position: 'top-right'
+        });
+
         this.getUserPins();
         this.listenForUserPositionChanges();
         this.drawingTools = new PolygonDrawingTool(this.map, null, this.saveGeofence);
