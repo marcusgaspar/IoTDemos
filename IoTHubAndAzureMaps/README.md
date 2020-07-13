@@ -5,10 +5,17 @@ This demo uses the web application of the Workplace Health and Safety Demo to sh
 In this demo you will be able to:
 - Show in the map the position of a device based on its telemetry information
 - Create GeoFence drawing it in the map
-- Receive a notification when a device enters in the geofence area
-- Receive a notification when a device exits  the geofence area
+- Receive an email notification when the device enters in the geofence area
+- Receive an email notification when the device exits the geofence area
 
-![Maps Web App](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen.png)
+### Device position in the map
+![Maps Device_Position](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen.png)
+
+### Device entered in the geofence area
+![Maps Device_Entered_GeoFence](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen-Entered-Alert.png)
+
+### Device exited the geofence area
+![Maps Device_Exited_GeoFence](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/WebApp-Map-Screen-Exited-Alert.png)
 
 ## Architecture
 ![Architecture](https://github.com/marcusgaspar/IoTDemos/blob/master/IoTHubAndAzureMaps/images/IoTHubAndAzureMapsArchitecture.png)
